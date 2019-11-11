@@ -5,25 +5,84 @@
   width: 100%;
   background-color: #ddd;
   padding:10px;
+  margin-top:10px;
+  border: 4px solid #BC5CCB;
 }
 
 .skills {
-  text-align: right;
+  text-align: left;
   padding-top: 10px;
   padding-bottom: 10px;
   color: white;
-  background-color: #4CAF50;
-  padding:30px;
-
+  
+  padding:20px;
+  border:5px solid black;
+  color:#000000;
+  font-size:25px;
+  text-align: right;
+  align-content: center;
+  
 
   
 }
 
-body
+
+
+
+.App
 {
-  margin:20px;
-  background:#eee;
+  margin:10px;
+  
+}
+
+  body {
+ 
+
+    background: fixed;
+    background: #15310f;
+  
 
 }
 
 
+.containerr
+{
+    display: flex;
+    flex-direction:column;
+    margin:10px;
+    margin-top: 20px;
+    color:#000000;
+    border-style: groove;
+    border-width: 5px;
+    border-color: grey;
+      padding:15px;
+      background: #819000;
+      border-radius: 6px;
+
+   
+}
+#textt
+{
+  padding:12px;
+  font-size:35px;
+  border: 3px solid #BC5CCB;
+}
+#text
+{
+  padding:12px;
+  font-size:35px;
+  border: 3px solid #BC5CCB;
+}
+#smokedef
+{
+  padding:12px;
+  font-size:25px;
+  border: 3px solid #BC5CCB;
+  margin-top:5px;
+}
+h1{
+  
+  font-weight:bold;
+  font-size:30px;
+  color:#685C0F;
+}
