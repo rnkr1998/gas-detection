@@ -1,0 +1,24 @@
+[debug] [2019-11-12T08:08:44.343Z] ----------------------------------------------------------------------
+[debug] [2019-11-12T08:08:44.348Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\naveen\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-11-12T08:08:44.349Z] CLI Version:   7.7.0
+[debug] [2019-11-12T08:08:44.349Z] Platform:      win32
+[debug] [2019-11-12T08:08:44.349Z] Node Version:  v10.16.0
+[debug] [2019-11-12T08:08:44.350Z] Time:          Tue Nov 12 2019 13:38:44 GMT+0530 (India Standard Time)
+[debug] [2019-11-12T08:08:44.350Z] ----------------------------------------------------------------------
+[debug] [2019-11-12T08:08:44.350Z] 
+[debug] [2019-11-12T08:08:44.375Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-12T08:08:44.378Z] > authorizing via signed-in user
+[debug] [2019-11-12T08:08:44.378Z] [iam] checking project gasdetection-4a640 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-11-12T08:08:44.384Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/gasdetection-4a640:testIamPermissions  
+
+[debug] [2019-11-12T08:08:46.512Z] <<< HTTP RESPONSE 200
+[debug] [2019-11-12T08:08:46.516Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/gasdetection-4a640  
+ 
+[debug] [2019-11-12T08:08:47.037Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'gasdetection-4a640'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-11-12T08:08:47.054Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/gasdetection-4a640/versions  
+
+[debug] [2019-11-12T08:08:51.804Z] <<< HTTP RESPONSE 200
