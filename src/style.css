@@ -3,11 +3,15 @@
 
 .container {
   width: 100%;
-  background-color: black;
+   background: #515b4d;
   padding:10px;
-  margin-top:10px;
-  border: 3px solid #822c0e;
-  border-radius:4px;
+
+  border: 15px solid #515b4d;;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: 2px solid #822c0e;
+
+
 }
 
 .skills {
@@ -22,7 +26,8 @@
 
   text-align: right;
   align-content: center;
-  border-radius:30px;
+  border-top-right-radius:30px;
+  border-bottom-right-radius: 30px;
   font-weight: bolder;
 
   
@@ -38,7 +43,7 @@
  
 
     background: fixed;
-    background: #15310f;
+    background: #0B253F;
   
   
 
@@ -51,12 +56,12 @@
     flex-direction:column;
     margin:10px;
     margin-top: 20px;
-    color:#000000;
+    color:#010D18;
     border-style: groove;
     border-width: 5px;
     border-color: grey;
       padding:15px;
-      background: #010203;
+      background: #3F250B;
       border-radius: 6px;
       border-radius:4px;
 
@@ -65,47 +70,48 @@
 #textt
 {
   padding:12px;
-  font-size:35px;
+  font-size:29px;
   border: 2px solid #822c0e;
   background: #515b4d;
   border-radius: 10px;
   color:#badaaf;
-  text-align: center;
+
 }
 #text
 {
   padding:12px;
   font-size:45px;
   border: 2px solid #822c0e;
-  background:#B7B2B2;
+  background: #515b4d;
   border-radius: 5px;
+  color:#badaaf;
 }
 #smokedef
 {
   padding:12px;
   font-size:25px;
   border: 2px solid #822c0e;
+  border-top-style: hidden;
   background: #515b4d;
-  margin-top:5px;
-  color:#badaaf;
-  text-align: center;
-  border-radius: 10px;
 
+  color:#badaaf;
+  
+  
 }
 h1{
   
   font-weight:bold;
   font-size:30px;
-  color:#685C0F;
+  color:orange;
 }
 h2
 {
   font-weight:bolder;
   font-size:37px;
-  color :orange;
-  margin:10px;
+  color :orangered;
+  margin:20px;
   padding:12px;
-  margin-top:70px;
+  margin-top:20px;
   
   
 }
@@ -125,10 +131,12 @@ h2
 
 #maps
 {
-  height:500px;
-  width:900px;
+  height:600px;
+ 
   margin:10px;
   border:10px solid black;
+  display: flex;
+  flex-direction:column;
 }
 
 
@@ -137,8 +145,8 @@ h2
 
   #maps
   {
-    height:400px;
-    width:380px;
+    height:600px;
+   
     margin:10px;
   }
   h2

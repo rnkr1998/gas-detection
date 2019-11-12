@@ -104,7 +104,7 @@ componentWillUnmount() {
        <div className="App">
          <h2>L.P.G Cylinder Monitering System</h2>
          <div className="containerr">
-       <h1>Volume of gas</h1>
+       <h1>Gas percentage</h1>
 
        <input type="text" id="text" value={this.state.smoke} disabled/>
        <input type="text" id="smokedef" value={this.state.smokedef} disabled/>
@@ -128,7 +128,7 @@ componentWillUnmount() {
 
 <p>{this.state.gasdef}</p>                                   
 </div>
-
+<h1 style={{marginLeft:"30px"}}>Location</h1>
 <div id="maps">
 <GoogleMapReact
   bootstrapURLKeys={{ key: "AIzaSyAURjs26CsEHQegexOTvQxcHGk0tbMqFM4"}}
@@ -144,9 +144,12 @@ componentWillUnmount() {
   />
 </GoogleMapReact>
       </div>
-    
-
-
+    <div style={{color:"white", margin:"40px"}}>
+   
+   <i>Copyright@2019 Naveen reddy ,developed using react libraries.</i><br/>
+   <i>Smart L.P.G Cylinder Monitering System - IoT Project.</i>
+   <hr style={{color:"white"}}/>
+   </div>
 
 
 </div>
