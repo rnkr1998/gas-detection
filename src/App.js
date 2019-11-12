@@ -1,7 +1,10 @@
 import React,{Component} from 'react';
 import './style.css';
+
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker.jsx';
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
+
 
 class App extends Component
 {
@@ -14,14 +17,14 @@ class App extends Component
     gasdef:"",
     gasper:"",
     center:{
-      lat:51.527452,
-      lng:-0.124975
-        }
+      lat:31.251794,
+      lng:75.70501
+        },
+        zoom:11
   };
 
 
-
-
+  
 
   componentDidMount() {
     this.getsmoke();
@@ -99,7 +102,7 @@ componentWillUnmount() {
      return(
 
        <div className="App">
-         <h2>L.P.G Monitering System</h2>
+         <h2>L.P.G Cylinder Monitering System</h2>
          <div className="containerr">
        <h1>Volume of gas</h1>
 
@@ -126,21 +129,21 @@ componentWillUnmount() {
 <p>{this.state.gasdef}</p>                                   
 </div>
 
-<div className="Map">
-
+<div id="maps">
 <GoogleMapReact
-   center={this.state.center}
-   zoom={5}
+  bootstrapURLKeys={{ key: "AIzaSyCW4uhIsTADBi2vn6TnyzB6oWm_RE3PYy8"}}
+  defaultCenter={this.state.center}
+  defaultZoom={this.state.zoom}
+  yesIWantToUseGoogleMapApiInternals={true}
+ 
 >
-<Marker
-       
-       lat={this.state.center.lat}
-       lng={this.state.center.lng}
-    
-   ></Marker>
+  <AnyReactComponent
+    lat={this.state.center.lat}
+    lng={this.state.center.lng}
+    text={<Marker text="Im Here"/>}
+  />
 </GoogleMapReact>
-</div>
-
+      </div>
     
 
 
