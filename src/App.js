@@ -129,7 +129,7 @@ componentWillUnmount() {
 <p>{this.state.gasdef}</p>                                   
 </div>
 <h1 style={{marginLeft:"30px"}}>Location</h1>
-<div id="maps">
+<div id="maps" style={{height:"500px",display:"flex",flexDirection:"column",border:"10px solid black",margin:"10px"}} >
 <GoogleMapReact
   bootstrapURLKeys={{ key: "AIzaSyAURjs26CsEHQegexOTvQxcHGk0tbMqFM4"}}
   defaultCenter={this.state.center}
