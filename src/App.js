@@ -1,8 +1,7 @@
 import React,{Component} from 'react';
 import './style.css';
-
-
-
+import GoogleMapReact from 'google-map-react';
+import Marker from './Marker.jsx';
 
 class App extends Component
 {
@@ -13,7 +12,11 @@ class App extends Component
     smokedef:"",
    
     gasdef:"",
-    gasper:""
+    gasper:"",
+    center:{
+      lat:51.527452,
+      lng:-0.124975
+        }
   };
 
 
@@ -41,7 +44,7 @@ class App extends Component
         var b=res.feeds;
         for(let i in b)
         {
-          var c=b[i].field3; 
+          var c=b[i].field1; 
         
         if(c<=15)
         {
@@ -65,7 +68,7 @@ class App extends Component
             smokedef: b[i].field2
           });
           this.setState({
-            smokeper: b[i].field3+"%"
+            smokeper: b[i].field1+"%"
           });
           this.setState({
             gasdef: b[i].field4
@@ -78,8 +81,7 @@ class App extends Component
       });
   }
 
-
-
+ 
   
 
 
@@ -122,6 +124,26 @@ componentWillUnmount() {
 
 <p>{this.state.gasdef}</p>                                   
 </div>
+
+<div className="Map">
+
+<GoogleMapReact
+   center={this.state.center}
+   zoom={5}
+>
+<Marker
+       
+       lat={this.state.center.lat}
+       lng={this.state.center.lng}
+    
+   ></Marker>
+</GoogleMapReact>
+</div>
+
+    
+
+
+
 
 </div>
   );
