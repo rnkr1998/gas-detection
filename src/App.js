@@ -99,6 +99,7 @@ componentWillUnmount() {
      return(
 
        <div className="App">
+         <h2>L.P.G Monitering System</h2>
          <div className="containerr">
        <h1>Volume of gas</h1>
 
