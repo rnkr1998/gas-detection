@@ -131,7 +131,7 @@ componentWillUnmount() {
 
 <div id="maps">
 <GoogleMapReact
-  bootstrapURLKeys={{ key: "AIzaSyCW4uhIsTADBi2vn6TnyzB6oWm_RE3PYy8"}}
+  bootstrapURLKeys={{ key: "AIzaSyAURjs26CsEHQegexOTvQxcHGk0tbMqFM4"}}
   defaultCenter={this.state.center}
   defaultZoom={this.state.zoom}
   yesIWantToUseGoogleMapApiInternals={true}
