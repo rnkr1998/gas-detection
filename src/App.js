@@ -144,7 +144,7 @@ componentWillUnmount() {
   />
 </GoogleMapReact>
       </div>
-    <div style={{color:"white", margin:"40px"}}>
+    <div style={{color:"white", margin:"40px",marginLeft:"20px",marginRight:"20px"}}>
    
    <i>Copyright@2019 Naveen reddy ,developed using react libraries.</i><br/>
    <i>Smart L.P.G Cylinder Monitering System - IoT Project.</i>
