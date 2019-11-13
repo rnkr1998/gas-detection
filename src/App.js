@@ -131,7 +131,7 @@ componentWillUnmount() {
 <h1 style={{marginLeft:"30px"}}>Location</h1>
 <div id="maps" style={{height:"500px",display:"flex",flexDirection:"column",border:"10px solid black",margin:"10px"}} >
 <GoogleMapReact
-  bootstrapURLKeys={{ key: "AIzaSyCpOGEryfLuAyGOQV0w94iPQAFko6sA5yI"}}
+  bootstrapURLKeys={{ key: "AIzaSyAURjs26CsEHQegexOTvQxcHGk0tbMqFM4"}}
   defaultCenter={this.state.center}
   defaultZoom={this.state.zoom}
   yesIWantToUseGoogleMapApiInternals={true}
