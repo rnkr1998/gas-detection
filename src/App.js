@@ -161,12 +161,12 @@ componentWillUnmount() {
      return(
 
        <div className="App">
-         
+         <div style={{background: "#000000"}}> 
 
-         <h2> <img src="Title.png" height="45px" width="50px" alt="img"/> L.P.G Cylinder Monitering System</h2>
+         <h2> <img src="Title.png" height="40px" width="50px" alt="img"/> L.P.G Cylinder Monitering System</h2>
       
 
-         
+           </div>
          
          <div className="containerr" id="containers">
        <h1>Gas percentage</h1>
