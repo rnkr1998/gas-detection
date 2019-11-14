@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+
 import './style.css';
 
 import GoogleMapReact from 'google-map-react';
@@ -20,62 +21,118 @@ class App extends Component
       lat:31.251794,
       lng:75.70501
         },
-        zoom:11
+        zoom:13,
+       
+        feeds: [
+          {
+          created_at: "2019-11-09T04:28:46Z",
+          entry_id: 1,
+          field1: "75",
+          field2: 1,
+          field3: "15",
+          field4: 0,
+          field5: "567"
+          },]
   };
 
 
   
 
   componentDidMount() {
+
+    let rando=(Math.floor(Math.random() * ((Math.floor(70)) - (Math.ceil(1)) + 1)) + 1);
+
+        let ran=(Math.floor(Math.random() * ((Math.floor(70)) - (Math.ceil(1)) + 1)) + 1);
+        let run=(Math.floor(Math.random() * ((Math.floor(70)) - (Math.ceil(1)) + 1)) + 1);
+        
+        var randomcolor="rgb("+rando+"%,"+ran+"%,"+run+"%)"
+         document.body.style.background=randomcolor;
     this.getsmoke();
     this.interval = setInterval(() => {
       this.getsmoke();
     }, 100);
-
+     
+      
     
   }
 
 
 
   getsmoke() {
-    fetch("https://api.thingspeak.com/channels/228181/feeds.json?")
+    fetch("https://api.thingspeak.com/channels/228181/feeds.json?")  //906153  //228181
       .then(res => {
         return res.json();
       })
       .then(res => {
-
-        var b=res.feeds;
+        var ch=res.channel;
+       
+        var b=this.state.feeds;
+        
+  
+       
+        
         for(let i in b)
         {
-          var c=b[i].field1; 
         
-        if(c<=15)
-        {
-          document.getElementById("progress").style.backgroundColor="red";
-        }
-        else if(c>=16 && c<=70)
-        {
-          document.getElementById("progress").style.backgroundColor="yellow";
-        }
-        else
-        {
-          document.getElementById("progress").style.backgroundColor="#4CAF50";
-        }
-
-
+          this.setState({lat:ch.latitude});
+          this.setState({lng:ch.longitude});
 
            this.setState({
             smoke: b[i].field1+"kg"
           });
+
+          var d=b[i].field2;
+          if(d===0)
+          {
+            this.setState({
+              smokedef:"Cylinder gas is Full Level"
+            });
+            document.getElementById("progress").style.backgroundColor="#4CAF50";
+            document.getElementById("smokedef").style.background="#4CAF50";
+          }
+          else if(d===0.5)
+          {
+            this.setState({
+              smokedef: "Cylinder gas is medium level"
+            });
+            document.getElementById("progress").style.backgroundColor="yellow";
+            document.getElementById("smokedef").style.background="yellow";
+          }
+          else
+          {
+            this.setState({
+              smokedef: "Need to Refill the gas"
+            });
+            document.getElementById("progress").style.backgroundColor="red";
+            document.getElementById("smokedef").style.background="red";
+           //alert("ALERT! Gas quantity is low");
+          }
+          
+
+
           this.setState({
-            smokedef: b[i].field2
+            smokeper: b[i].field3+"%"
           });
-          this.setState({
-            smokeper: b[i].field1+"%"
-          });
-          this.setState({
-            gasdef: b[i].field4
-          });
+
+          var e=b[i].field4;
+          if(e===1)
+          {
+            this.setState({
+              gasdef:"Oh ! Gas is Leaking...."
+            });
+            alert("ALERT! Oh my god Gas is leaking...");
+            document.getElementById("textt").style.background="red";
+          }
+          else if(e===0)
+          {
+            this.setState({
+              gasdef: "Clean Environment"
+            });
+            document.getElementById("textt").style.background="green";
+          }
+          
+
+
           this.setState({
             gasper: b[i].field5+"%"
           });
@@ -103,13 +160,13 @@ componentWillUnmount() {
 
        <div className="App">
          <h2>L.P.G Cylinder Monitering System</h2>
-         <div className="containerr">
+         <div className="containerr" id="containers">
        <h1>Gas percentage</h1>
 
        <input type="text" id="text" value={this.state.smoke} disabled/>
        <input type="text" id="smokedef" value={this.state.smokedef} disabled/>
   
-<div className="container" >
+<div className="container" id="containerrs" >
 
   <div className="skills" id="progress" style={{width:this.state.smokeper}}>{this.state.smokeper}</div>
 </div>
@@ -124,9 +181,9 @@ componentWillUnmount() {
 
 <h1>Environment</h1>
 
-<input type="text" id="textt" value={this.state.smokedef} disabled/>
+<input type="text" id="textt" value={this.state.gasdef} disabled/>
 
-<p>{this.state.gasdef}</p>                                   
+                                
 </div>
 <h1 style={{marginLeft:"30px"}}>Location</h1>
 <div id="maps" style={{height:"500px",display:"flex",flexDirection:"column",border:"10px solid black",margin:"10px"}} >
@@ -140,6 +197,7 @@ componentWillUnmount() {
   <AnyReactComponent
     lat={this.state.center.lat}
     lng={this.state.center.lng}
+    zoom={this.state.zoom}
     text={<Marker text="Im Here"/>}
   />
 </GoogleMapReact>
