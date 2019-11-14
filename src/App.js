@@ -120,8 +120,9 @@ class App extends Component
             this.setState({
               gasdef:"Oh ! Gas is Leaking...."
             });
-            alert("ALERT! Oh my god Gas is leaking...");
+            //alert("ALERT! Oh my god Gas is leaking...");
             document.getElementById("textt").style.background="red";
+           
           }
           else if(e===0)
           {
@@ -136,6 +137,7 @@ class App extends Component
           this.setState({
             gasper: b[i].field5+"%"
           });
+          
         }
       
       });
@@ -159,7 +161,8 @@ componentWillUnmount() {
      return(
 
        <div className="App">
-         <h2>L.P.G Cylinder Monitering System</h2>
+         
+         <h2> <img src="Title.png" height="60px" width="50px" alt="img"/> L.P.G Cylinder Monitering System</h2>
          <div className="containerr" id="containers">
        <h1>Gas percentage</h1>
 
