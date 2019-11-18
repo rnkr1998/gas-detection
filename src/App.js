@@ -27,11 +27,10 @@ class App extends Component
           {
           created_at: "2019-11-09T04:28:46Z",
           entry_id: 1,
-          field1: "75",
-          field2: 1,
-          field3: "15",
-          field4: 0,
-          field5: "567"
+          field1: 16,
+          field2: 75,
+          field3: 0,
+          field4: 12,
           },]
   };
 
@@ -40,13 +39,8 @@ class App extends Component
 
   componentDidMount() {
 
-    let rando=(Math.floor(Math.random() * ((Math.floor(70)) - (Math.ceil(1)) + 1)) + 1);
-
-        let ran=(Math.floor(Math.random() * ((Math.floor(70)) - (Math.ceil(1)) + 1)) + 1);
-        let run=(Math.floor(Math.random() * ((Math.floor(70)) - (Math.ceil(1)) + 1)) + 1);
-        
-        var randomcolor="rgb("+rando+"%,"+ran+"%,"+run+"%)"
-         document.body.style.background=randomcolor;
+    
+     
     this.getsmoke();
     this.interval = setInterval(() => {
       this.getsmoke();
@@ -64,9 +58,9 @@ class App extends Component
         return res.json();
       })
       .then(res => {
-        var ch=res.channel;
+      
        
-        var b=this.state.feeds;
+        var b=res.feeds;
         
   
        
@@ -74,34 +68,34 @@ class App extends Component
         for(let i in b)
         {
         
-          this.setState({lat:ch.latitude});
-          this.setState({lng:ch.longitude});
+          this.setState({lat:res.channel.latitude});
+          this.setState({lng:res.channel.longitude});
 
            this.setState({
-            smoke: b[i].field1+"kg"
+            gas: b[i].field1+"kg"
           });
 
-          var d=b[i].field2;
-          if(d===0)
+        
+          if(b[i].field2>=75)
           {
             this.setState({
-              smokedef:"Cylinder gas is Full Level"
+              gasdef:"Gas volume is Maximum Level"
             });
-            document.getElementById("progress").style.backgroundColor="#4CAF50";
-            document.getElementById("smokedef").style.background="#4CAF50";
+            document.getElementById("progress").style.backgroundColor="green";
+            document.getElementById("smokedef").style.background="green";
           }
-          else if(d===0.5)
+          else if(b[i].field2>=20 && b[i].field2<75)
           {
             this.setState({
-              smokedef: "Cylinder gas is medium level"
+              gasdef: "Gas volume is medium level"
             });
             document.getElementById("progress").style.backgroundColor="yellow";
-            document.getElementById("smokedef").style.background="yellow";
+            document.getElementById("smokedef").style.background="#FF7F50";
           }
           else
           {
             this.setState({
-              smokedef: "Need to Refill the gas"
+              gasdef: "Need to Refill the gas"
             });
             document.getElementById("progress").style.backgroundColor="red";
             document.getElementById("smokedef").style.background="red";
@@ -111,23 +105,23 @@ class App extends Component
 
 
           this.setState({
-            smokeper: b[i].field3+"%"
+            gasper: b[i].field2+"%"
           });
 
-          var e=b[i].field4;
-          if(e===1)
+        
+          if(b[i].field3===1)
           {
             this.setState({
-              gasdef:"Oh ! Gas is Leaking...."
+              smokedef:"Oh ! Gas is Leaking...."
             });
             //alert("ALERT! Oh my god Gas is leaking...");
             document.getElementById("textt").style.background="red";
            
           }
-          else if(e===0)
+          else if(b[i].field3===0)
           {
             this.setState({
-              gasdef: "Clean Environment"
+              smokedef: "Clean Environment"
             });
             document.getElementById("textt").style.background="green";
           }
@@ -135,7 +129,7 @@ class App extends Component
 
 
           this.setState({
-            gasper: b[i].field5+"%"
+            smokeper: b[i].field4+"%"
           });
           
         }
@@ -161,22 +155,22 @@ componentWillUnmount() {
      return(
 
        <div className="App">
-         <div style={{background: "#000000"}}> 
+         <div style={{background: "#efree"}}> 
 
-         <h2> <img src="Title.png" height="40px" width="50px" alt="img"/> L.P.G Cylinder Monitering System</h2>
+         <h2> <img src="Title.png" height="50px" width="50px" alt="img"/> L.P.G Cylinder Monitering System</h2>
       
 
            </div>
          
          <div className="containerr" id="containers">
-       <h1>Gas percentage</h1>
+       <h1>Gas Level</h1>
 
-       <input type="text" id="text" value={this.state.smoke} disabled/>
-       <input type="text" id="smokedef" value={this.state.smokedef} disabled/>
+       <input type="text" id="text" value={this.state.gas} disabled/>
+       <input type="text" id="smokedef" value={this.state.gasdef} disabled/>
   
 <div className="container" id="containerrs" >
 
-  <div className="skills" id="progress" style={{width:this.state.smokeper}}>{this.state.smokeper}</div>
+  <div className="skills" id="progress" style={{width:this.state.gasper,maxWidth:"100%"}}>{this.state.gasper}</div>
 </div>
 
 </div>
@@ -189,12 +183,13 @@ componentWillUnmount() {
 
 <h1>Environment</h1>
 
-<input type="text" id="textt" value={this.state.gasdef} disabled/>
+<input type="text" id="textt" value={this.state.smokedef} disabled/>
 
                                 
 </div>
+
+<div id="maps" style={{height:"500px",display:"flex",flexDirection:"column",border:"10px solid black",margin:"10px",background:"#000000"}} >
 <h1 style={{marginLeft:"30px"}}>Location</h1>
-<div id="maps" style={{height:"500px",display:"flex",flexDirection:"column",border:"10px solid black",margin:"10px"}} >
 <GoogleMapReact
   bootstrapURLKeys={{ key: "AIzaSyAURjs26CsEHQegexOTvQxcHGk0tbMqFM4"}}
   defaultCenter={this.state.center}
