@@ -28,7 +28,7 @@ class App extends Component
           created_at: "2019-11-09T04:28:46Z",
           entry_id: 1,
           field1: 16,
-          field2: 75,
+          field2: 1,
           field3: 0,
           field4: 12,
           },]
@@ -60,7 +60,7 @@ class App extends Component
       .then(res => {
       
        
-        var b=res.feeds;
+        var b=this.state.feeds;
         
   
        
@@ -81,7 +81,7 @@ class App extends Component
             this.setState({
               gasdef:"Gas volume is Maximum Level"
             });
-            document.getElementById("progress").style.backgroundColor="green";
+            document.getElementById("progress").style.backgroundColor="	#7FFF00";
             document.getElementById("smokedef").style.background="green";
           }
           else if(b[i].field2>=20 && b[i].field2<75)
@@ -157,7 +157,7 @@ componentWillUnmount() {
        <div className="App">
          <div style={{background: "#efree"}}> 
 
-         <h4> <img src="Title.png" id="titleimg" alt="img"/> L.P.G Cylinder Monitering System</h4>
+         <h4> <img src="Title.png" id="titleimg" alt="img"/> L.P.G Monitering System</h4>
       
 
            </div>

@@ -17,10 +17,11 @@
 }
 
 .skills {
-  text-align: left;
+  
 
   
-  
+  text-align: center;
+  align-content: center;
   padding:15px;
   font-size:30px;
   border:2px solid #819000;
@@ -46,7 +47,7 @@
  
 
    
-   
+    background-color:#0B253F;
     background-image: url("back.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -91,7 +92,7 @@
 {
   padding:15px;
   font-size:45px;
-  padding-left:15px;
+
  
   border-top-left-radius: 5px;
   border-top-right-radius:5px;
@@ -181,19 +182,22 @@ h4
   {
     margin-right:20px;
     font-size:23px;
-    margin:10px;
+    margin-top:20px;
     padding:15px;
+    
   }
   h1
   {
     margin-right: 20px;
     font-size:20px;
   }
+  
 
   .skills
   {
     padding:11px;
-    font-size:16px;
+    text-align: right;
+    font-size:12px;
   }
   .marker{
     width:40px;
@@ -217,11 +221,11 @@ font-size:17px;
 }
 #text
 {
-  font-size: 25px;
+  font-size: 20px;
 }
 #titleimg
 {
-  height:40;
+  height:35;
   width: 40;
 }
 }
