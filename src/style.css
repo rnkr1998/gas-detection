@@ -47,11 +47,12 @@
 
    
    
-    background-image: url("backk.jpg");
+    background-image: url("back.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    background-repeat: no-repeat;
   
   
 
@@ -158,6 +159,11 @@ h4
   border: 5px solid black;
 }
 
+#titleimg
+{
+  height:45px;
+   width:50px;
+}
 
 
 
@@ -176,7 +182,7 @@ h4
     margin-right:20px;
     font-size:23px;
     margin:10px;
-    padding:10px;
+    padding:15px;
   }
   h1
   {
@@ -212,5 +218,10 @@ font-size:17px;
 #text
 {
   font-size: 25px;
+}
+#titleimg
+{
+  height:40;
+  width: 40;
 }
 }

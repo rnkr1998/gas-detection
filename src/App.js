@@ -157,7 +157,7 @@ componentWillUnmount() {
        <div className="App">
          <div style={{background: "#efree"}}> 
 
-         <h4> <img src="Title.png" height="45px" width="50px" alt="img"/> L.P.G Cylinder Monitering System</h4>
+         <h4> <img src="Title.png" id="titleimg" alt="img"/> L.P.G Cylinder Monitering System</h4>
       
 
            </div>
