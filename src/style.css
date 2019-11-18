@@ -47,7 +47,7 @@
 
    
    
-    background-image: url("bac.jpg");
+    background-image: url("backk.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -68,10 +68,10 @@
     border-style: groove;
     border-width: 5px;
     border-color: grey;
-      padding:15px;
+      padding:10px;
       background:#0B253F;
       border-radius: 6px;
-      border-radius:4px;
+      
 
    
 }
@@ -123,7 +123,7 @@ h1{
   font-size:30px;
   color:orange;
 }
-h2
+h4
 {
   font-weight:bolder;
   font-size:37px;
@@ -139,7 +139,7 @@ h2
   height:500x;
  
   margin:10px;
-  border:30px solid black;
+  border:30px solid #0B253F;
   display: flex;
   flex-direction:column;
   background: #eee;
@@ -167,18 +167,26 @@ h2
 
   #maps
   {
-    height:600px;
+    height:800px;
    
     margin:10px;
   }
-  h2
+  h4
   {
     margin-right:20px;
+    font-size:23px;
+    margin:10px;
+    padding:10px;
+  }
+  h1
+  {
+    margin-right: 20px;
+    font-size:20px;
   }
 
   .skills
   {
-    padding:15px;
+    padding:11px;
     font-size:16px;
   }
   .marker{
@@ -193,5 +201,16 @@ h2
     text-align: center;
     align-content:center;
   }
-
+#smokedef
+{
+font-size:17px;
+}
+#textt
+{
+  font-size:17px;
+}
+#text
+{
+  font-size: 25px;
+}
 }

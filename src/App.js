@@ -157,7 +157,7 @@ componentWillUnmount() {
        <div className="App">
          <div style={{background: "#efree"}}> 
 
-         <h2> <img src="Title.png" height="50px" width="50px" alt="img"/> L.P.G Cylinder Monitering System</h2>
+         <h4> <img src="Title.png" height="45px" width="50px" alt="img"/> L.P.G Cylinder Monitering System</h4>
       
 
            </div>
@@ -188,8 +188,8 @@ componentWillUnmount() {
                                 
 </div>
 
-<div id="maps" style={{height:"500px",display:"flex",flexDirection:"column",border:"10px solid black",margin:"10px",background:"#000000"}} >
-<h1 style={{marginLeft:"30px"}}>Location</h1>
+<div id="maps" style={{height:"500px",display:"flex",flexDirection:"column",border:"10px solid black",margin:"10px",background:"#0B253F"}} >
+<h1 style={{marginLeft:"10px"}}>Location</h1>
 <GoogleMapReact
   bootstrapURLKeys={{ key: "AIzaSyAURjs26CsEHQegexOTvQxcHGk0tbMqFM4"}}
   defaultCenter={this.state.center}
