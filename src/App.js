@@ -28,7 +28,7 @@ class App extends Component
           created_at: "2019-11-09T04:28:46Z",
           entry_id: 1,
           field1: 16,
-          field2: 1,
+          field2: 76,
           field3: 0,
           field4: 12,
           },]
@@ -53,27 +53,27 @@ class App extends Component
 
 
   getsmoke() {
-    fetch("https://api.thingspeak.com/channels/228181/feeds.json?")  //906153  //228181
+    fetch("https://api.thingspeak.com/channels/906153/feeds.json?")  //906153  //228181 //759839
       .then(res => {
         return res.json();
       })
       .then(res => {
       
        
-        var b=this.state.feeds;
+        var b=res.feeds;
         
   
-       
         
         for(let i in b)
         {
         
           this.setState({lat:res.channel.latitude});
           this.setState({lng:res.channel.longitude});
-
+       
            this.setState({
             gas: b[i].field1+"kg"
           });
+        
 
         
           if(b[i].field2>=75)
@@ -107,7 +107,7 @@ class App extends Component
           this.setState({
             gasper: b[i].field2+"%"
           });
-
+        
         
           if(b[i].field3===1)
           {
@@ -118,7 +118,7 @@ class App extends Component
             document.getElementById("textt").style.background="red";
            
           }
-          else if(b[i].field3===0)
+          else
           {
             this.setState({
               smokedef: "Clean Environment"
@@ -164,14 +164,15 @@ componentWillUnmount() {
          
          <div className="containerr" id="containers">
        <h1>Gas Level</h1>
+       <div className="container" id="containerrs" >
 
+     <div className="skills" id="progress" style={{width:this.state.gasper,maxWidth:"100%"}}>{this.state.gasper}</div>
+      </div>
+      <input type="text" id="smokedef" value={this.state.gasdef} disabled/>
        <input type="text" id="text" value={this.state.gas} disabled/>
-       <input type="text" id="smokedef" value={this.state.gasdef} disabled/>
+      
   
-<div className="container" id="containerrs" >
 
-  <div className="skills" id="progress" style={{width:this.state.gasper,maxWidth:"100%"}}>{this.state.gasper}</div>
-</div>
 
 </div>
 
@@ -191,7 +192,7 @@ componentWillUnmount() {
 <div id="maps" style={{height:"500px",display:"flex",flexDirection:"column",border:"10px solid black",margin:"10px",background:"#0B253F"}} >
 <h1 style={{marginLeft:"10px"}}>Location</h1>
 <GoogleMapReact
-  bootstrapURLKeys={{ key: "AIzaSyAURjs26CsEHQegexOTvQxcHGk0tbMqFM4"}}
+  bootstrapURLKeys={{ key: "AIzaSyCpOGEryfLuAyGOQV0w94iPQAFko6sA5yI"}} // AIzaSyAURjs26CsEHQegexOTvQxcHGk0tbMqFM4       //AIzaSyCpOGEryfLuAyGOQV0w94iPQAFko6sA5yI
   defaultCenter={this.state.center}
   defaultZoom={this.state.zoom}
   yesIWantToUseGoogleMapApiInternals={true}
@@ -207,7 +208,7 @@ componentWillUnmount() {
       </div>
     <div style={{color:"white", margin:"40px",marginLeft:"20px",marginRight:"20px"}}>
    
-   <i>Copyright@2019 Naveen reddy ,developed using react libraries.</i><br/>
+   <i>RaspberryPi-based-Project@2019 Naveen reddy ,developed using react libraries.</i><br/>
    <i>Smart L.P.G Cylinder Monitering System - IoT Project.</i>
    <hr style={{color:"white"}}/>
    </div>
