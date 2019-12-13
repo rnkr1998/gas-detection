@@ -39,12 +39,12 @@ class App extends Component
 
   componentDidMount() {
 
+  
     
-     
     this.getsmoke();
     this.interval = setInterval(() => {
       this.getsmoke();
-    }, 100);
+    }, 1500);
      
       
     
@@ -53,15 +53,20 @@ class App extends Component
 
 
   getsmoke() {
-    fetch("https://api.thingspeak.com/channels/906153/feeds.json?")  //906153  //228181 //759839
+    fetch("https://api.thingspeak.com/channels/228181/feeds.json?")  //906153  //228181 //759839
       .then(res => {
         return res.json();
       })
       .then(res => {
       
        
-        var b=res.feeds;
-        
+        var b=this.state.feeds;
+          
+    let rando=(Math.floor(Math.random() * ((Math.floor(100)) - (Math.ceil(1)) + 1)) + 1);
+
+    let ran=(Math.floor(Math.random() * ((Math.floor(100)) - (Math.ceil(1)) + 1)) + 1);
+    //let run=(Math.floor(Math.random() * ((Math.floor(70)) - (Math.ceil(1)) + 1)) + 1);
+
   
         
         for(let i in b)
@@ -71,12 +76,14 @@ class App extends Component
           this.setState({lng:res.channel.longitude});
        
            this.setState({
-            gas: b[i].field1+"kg"
+            gas:rando+"kg"
           });
         
-
+          this.setState({
+            field2:ran
+          });
         
-          if(b[i].field2>=75)
+          if(ran>=75)
           {
             this.setState({
               gasdef:"Gas volume is Maximum Level"
@@ -84,7 +91,7 @@ class App extends Component
             document.getElementById("progress").style.backgroundColor="	#7FFF00";
             document.getElementById("smokedef").style.background="green";
           }
-          else if(b[i].field2>=20 && b[i].field2<75)
+          else if(ran>=15 && ran<75)
           {
             this.setState({
               gasdef: "Gas volume is medium level"
@@ -102,10 +109,10 @@ class App extends Component
            //alert("ALERT! Gas quantity is low");
           }
           
-
+         
 
           this.setState({
-            gasper: b[i].field2+"%"
+            gasper: ran+"%"
           });
         
         
